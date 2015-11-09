@@ -1,23 +1,23 @@
 var CONN = {};
 
-const AF_INET     = CONN.AF_INET     = 2;
-const AF_INET6    = CONN.AF_INET6    = 10;
-const AF_UNIX     = CONN.AF_UNIX     = 1;
-const SOCK_STREAM = CONN.SOCK_STREAM = 1;
-const SOCK_DGRAM  = CONN.SOCK_DGRAM  = 2;
+var AF_INET     = CONN.AF_INET     = 2;
+var AF_INET6    = CONN.AF_INET6    = 10;
+var AF_UNIX     = CONN.AF_UNIX     = 1;
+var SOCK_STREAM = CONN.SOCK_STREAM = 1;
+var SOCK_DGRAM  = CONN.SOCK_DGRAM  = 2;
 
-const CONN_FAMILY_STR = {
+var CONN_FAMILY_STR = {
     '1':  'AF_UNIX',
     '2':  'AF_INET',
     '10': 'AF_INET6'
 };
 
-const CONN_TYPE_STR = {
+var CONN_TYPE_STR = {
     '1': 'SOCK_STREAM',
     '2': 'SOCK_DGRAM'
 };
 
-const CONN_FAMILY_AND_TYPE = {
+var CONN_FAMILY_AND_TYPE = {
     all:   [ [ AF_INET, AF_INET6, AF_UNIX ], [ SOCK_STREAM, SOCK_DGRAM ] ],
     tcp:   [ [ AF_INET, AF_INET6 ],          [ SOCK_STREAM ] ],
     tcp4:  [ [ AF_INET ],                    [ SOCK_STREAM ] ],
@@ -32,33 +32,33 @@ const CONN_FAMILY_AND_TYPE = {
 };
 
 
-const STATUS_RUNNING      = "running";
-const STATUS_SLEEPING     = "sleeping";
-const STATUS_DISK_SLEEP   = "disk-sleep";
-const STATUS_STOPPED      = "stopped";
-const STATUS_TRACING_STOP = "tracing-stop";
-const STATUS_ZOMBIE       = "zombie";
-const STATUS_DEAD         = "dead";
-const STATUS_WAKE_KILL    = "wake-kill";
-const STATUS_WAKING       = "waking";
-const STATUS_IDLE         = "idle";  //# BSD
-const STATUS_LOCKED       = "locked";  //# BSD
-const STATUS_WAITING      = "waiting";  //# BSD
+var STATUS_RUNNING      = "running";
+var STATUS_SLEEPING     = "sleeping";
+var STATUS_DISK_SLEEP   = "disk-sleep";
+var STATUS_STOPPED      = "stopped";
+var STATUS_TRACING_STOP = "tracing-stop";
+var STATUS_ZOMBIE       = "zombie";
+var STATUS_DEAD         = "dead";
+var STATUS_WAKE_KILL    = "wake-kill";
+var STATUS_WAKING       = "waking";
+var STATUS_IDLE         = "idle";  //# BSD
+var STATUS_LOCKED       = "locked";  //# BSD
+var STATUS_WAITING      = "waiting";  //# BSD
 
-const CONN_ESTABLISHED = "ESTABLISHED";
-const CONN_SYN_SENT    = "SYN_SENT";
-const CONN_SYN_RECV    = "SYN_RECV";
-const CONN_FIN_WAIT1   = "FIN_WAIT1";
-const CONN_FIN_WAIT2   = "FIN_WAIT2";
-const CONN_TIME_WAIT   = "TIME_WAIT";
-const CONN_CLOSE       = "CLOSE";
-const CONN_CLOSE_WAIT  = "CLOSE_WAIT";
-const CONN_LAST_ACK    = "LAST_ACK";
-const CONN_LISTEN      = "LISTEN";
-const CONN_CLOSING     = "CLOSING";
-const CONN_NONE        = "NONE";
+var CONN_ESTABLISHED = "ESTABLISHED";
+var CONN_SYN_SENT    = "SYN_SENT";
+var CONN_SYN_RECV    = "SYN_RECV";
+var CONN_FIN_WAIT1   = "FIN_WAIT1";
+var CONN_FIN_WAIT2   = "FIN_WAIT2";
+var CONN_TIME_WAIT   = "TIME_WAIT";
+var CONN_CLOSE       = "CLOSE";
+var CONN_CLOSE_WAIT  = "CLOSE_WAIT";
+var CONN_LAST_ACK    = "LAST_ACK";
+var CONN_LISTEN      = "LISTEN";
+var CONN_CLOSING     = "CLOSING";
+var CONN_NONE        = "NONE";
 
-const TCP_STATUSES = {
+var TCP_STATUSES = {
     4: CONN_ESTABLISHED,
     2: CONN_SYN_SENT,
     3: CONN_SYN_RECV,
@@ -73,7 +73,7 @@ const TCP_STATUSES = {
     none: CONN_NONE
 };
 
-const PROC_STATUSES = {
+var PROC_STATUSES = {
     1: STATUS_IDLE,
     2: STATUS_RUNNING,
     3: STATUS_SLEEPING,
@@ -81,7 +81,7 @@ const PROC_STATUSES = {
     5: STATUS_ZOMBIE
 };
 
-const TCP_STATUSES_LINUX = {
+var TCP_STATUSES_LINUX = {
     '01': CONN_ESTABLISHED,
     '02': CONN_SYN_SENT,
     '03': CONN_SYN_RECV,
@@ -96,7 +96,7 @@ const TCP_STATUSES_LINUX = {
     none: CONN_NONE
 };
 
-const PROC_STATUSES_LINUX = {
+var PROC_STATUSES_LINUX = {
     R: STATUS_RUNNING,
     S: STATUS_SLEEPING,
     D: STATUS_DISK_SLEEP,
@@ -113,7 +113,7 @@ const PROC_STATUSES_LINUX = {
 function usagePercent(used, total, round) {
 
     var percent = used / total * 100;
-    
+
     if (round) {
         percent.toFixed(round);
     }
